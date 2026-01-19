@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* --- Custom Responsive Logic --- */
+
+      /* Small Device: up to 576px (Mobile Default) */
+      @media (max-width: 576px) {
+        .nav-links{
+          display: none;
+        }
+        .subscribe-btn{
+          display: none;
+        }
+        .hamburger-label{
+          display: block;
+        }
+        .logo-text{
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Medium & Large Device: above 576px */
+      @media (min-width: 577px) {
+        .nav-links{
+          display: flex;
+        }
+        .subscribe-btn{
+          display: flex;
+        }
+        .hamburger-label{
+          display: none;
+        }
+      }
+
+      /* Large Device: above 992px (Optimization) */
+      @media (min-width: 992px) {
+        .nav-container{
+          padding-left: 5rem;
+          padding-right: 5rem;
+        }
+        .nav-links{
+          gap: 3rem;
+        }
+      }
+
+      /* Checkbox Hack for Mobile Menu */
+      #menu-toggle:checked ~ #mobile-menu {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-[#0f0421]">
+    <nav class="bg-[#0f0421] border-b border-gray-800 py-5 px-6 relative">
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between nav-container"
+      >
+        <div
+          class="font-extrabold tracking-tight text-white logo-text text-3xl"
+        >
+          Tech<span
+            class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+            >Wave</span
+          >
+        </div>
+
+        <div
+          class="nav-links items-center space-x-8 text-gray-300 font-medium text-lg"
+        >
+          <a href="#" class="hover:text-white transition">About</a>
+          <a href="#" class="hover:text-white transition">Episodes</a>
+          <a href="#" class="hover:text-white transition">Host</a>
+        </div>
+
+        <div class="subscribe-btn">
+          <a
+            href="#"
+            class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 px-7 py-2.5 rounded-full text-white font-bold flex items-center gap-2 hover:opacity-90 transition"
+          >
+            Subscribe
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <label for="menu-toggle" class="hamburger-label cursor-pointer">
+          <img src="./assets/hamburger-menu.png" alt="Menu" class="h-8 w-8" />
+        </label>
+        <input type="checkbox" id="menu-toggle" class="hidden" />
+
+        <div
+          id="mobile-menu"
+          class="hidden absolute top-full left-0 w-full bg-[#160a29] border-b border-gray-800 flex-col items-center py-8 space-y-5 z-50"
+        >
+          <a href="#" class="text-white text-xl">About</a>
+          <a href="#" class="text-white text-xl">Episodes</a>
+          <a href="#" class="text-white text-xl">Host</a>
+          <a
+            href="#"
+            class="bg-gradient-to-r from-yellow-400 to-purple-600 px-10 py-3 rounded-full text-white font-bold"
+            >Subscribe</a
+          >
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
